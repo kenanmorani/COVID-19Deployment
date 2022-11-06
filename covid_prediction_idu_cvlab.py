@@ -72,4 +72,4 @@ from tensorflow.keras.applications.imagenet_utils import preprocess_input, decod
 #     #st.write("The similarity score is approximately",score)
 #     print("The image is classified as ",image_class,)
 
-! streamlit run app.py & npx localtunnel --port 8501
+!streamlit run app.py & npx localtunnel --port 8501
