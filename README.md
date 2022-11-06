@@ -5,6 +5,6 @@
 * The deployment is attempted through a local host.
 
 ## Please Note: </br>
-* You would need the saved model ('.h5') file to be able to replicate the code. The saved model is large in size.
+* You would need the saved model ('.h5') file to be able to replicate the code.
 * If you wish to help, please send me an email to request the saved model.
 
