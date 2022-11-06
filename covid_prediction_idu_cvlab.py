@@ -31,7 +31,7 @@ from tensorflow.keras.applications.imagenet_utils import preprocess_input, decod
 #   model=load_model()
 # 
 # st.write("""
-#          # Image Classification
+#          # COVID-19 Prediction Through CT images
 #          """
 #          )
 # 
