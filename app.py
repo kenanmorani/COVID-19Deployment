@@ -178,8 +178,5 @@ if len(extensions9) >  len(extensions8):
 else:
       st.write("The Patient is POSITIVE for COVID")
       
-    
-    
-    
-     
-   st.write("Email @ kenan.morani@gmail.com, Webpage: https://github.com/kenanmorani")
+       
+st.write("Email @ kenan.morani@gmail.com, Webpage: https://github.com/kenanmorani")
