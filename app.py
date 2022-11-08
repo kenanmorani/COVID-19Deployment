@@ -54,8 +54,8 @@ st.write("""
 
 folder_path = st.text_input('Enter a file path:')
 st.write(folder_path)
-while not os.path.isfile(folder_path):
-    fileName = input("Whoops! No such file! Please enter the name of the file you'd like to use.")
+#while not os.path.isfile(folder_path):
+    #fileName = input("Whoops! No such file! Please enter the name of the file you'd like to use.")
 #try:
     #with open(folder_path) as input:
         #st.text(input.read())
