@@ -52,9 +52,9 @@ st.write("""
          """
          )
 
-filename = st.text_input('Enter a file path:')
+folder_path = st.text_input('Enter a file path:')
 try:
-    with open(filename) as input:
+    with open(folder_path) as input:
         st.text(input.read())
 except FileNotFoundError:
     st.error('File not found.')
@@ -66,11 +66,11 @@ from PIL import Image, ImageOps
 import numpy as np
 # st.set_option('deprecation.showfileUploaderEncoding', False)
 
-def upload_predict(upload_image, UNet_model ,model):
+def upload_predict(file_path, UNet_model ,model):
     
         size = (224,224)  
-        image = ImageOps.fit(upload_image, size, Image.ANTIALIAS)
-        
+        #image = ImageOps.fit(upload_image, size, Image.ANTIALIAS)
+        image = cv2.imread(file_path, 0)
         image = np.asarray(image)
         n = image
         #image = cv2.resize(image, dim)
@@ -132,26 +132,54 @@ def upload_predict(upload_image, UNet_model ,model):
         #Taking diagnosis Decision through CNN model
         #prediction = model.predict_proba(final)
         prediction = model.predict(final)
-        print('The probability that the image is heathy is', prediction)
-        prediction = prediction.astype(np.float)
+        #print('The probability that the image is heathy is', prediction)
+        #prediction = prediction.astype(np.float)
         #print('The probability that the image is heathy is', prediction)
 
-        if prediction > 0.5:
-         pred_class='NON-COVID'
-        else:
-         pred_class='COVID'
+        #if prediction > 0.5:
+         #pred_class='NON-COVID'
+        #else:
+         #pred_class='COVID'
         
         
-        return pred_class
+        return prediction
 
-if file is None:
-    st.text("Please upload an image file")
+#if file is None:
+#    st.text("Please upload an image file")
+#else:
+    #image = Image.open(file)
+    #st.image(image, use_column_width=True)
+    
+#folder_path = '/home/idu/Desktop/COV19D/val-seg3/non-covid'
+
+extensions8 = []
+extensions9 = []
+
+results =1
+
+for filee in os.listdir(folder_path):
+        file_path = os.path.join(folder_path, filee)
+        result = upload_predict(file_path, UNet_model, model)
+    
+        
+       
+        if result > 0.50:   # Class probability threshod is 0.50
+           extensions9.append(results)
+        else:
+           extensions8.append(results)           
+        #print(sub_folder_path, end="\r \n")
+        ## The majority voting at Patient's level
+        extensions8=[]
+        extensions9=[]
+    
+if len(extensions9) >  len(extensions8):
+      st.write("The Patient is NEGATIVE for NON-COVID")
+      
 else:
-    image = Image.open(file)
-    st.image(image, use_column_width=True)
-    predictions = upload_predict(image, UNet_model, model)
-    image_class = predictions
-    #score=np.round(predictions[0][0][2],5) 
-    st.write("The image is classified as", predictions)
-    #st.write("The similarity score is approximately",score)
-    st.write("Email @ kenan.morani@gmail.com, Webpage: https://github.com/kenanmorani")
+      st.write("The Patient is POSITIVE for COVID")
+      
+    
+    
+    
+     
+   st.write("Email @ kenan.morani@gmail.com, Webpage: https://github.com/kenanmorani")
