@@ -53,6 +53,7 @@ st.write("""
          )
 
 folder_path = st.text_input('Enter a file path:')
+st.write(folder_path)
 try:
     with open(folder_path) as input:
         st.text(input.read())
