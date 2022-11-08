@@ -15,7 +15,7 @@ from skimage import measure, feature
 from skimage.segmentation import clear_border
 from scipy import ndimage as ndi
 #import matplotlib.pyplot as plt
-
+import os
 import scipy.misc
 #import nibabel as nib
 
