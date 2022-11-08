@@ -1,7 +1,7 @@
 numpy==1.21.6
-streamlit==1.14.0
-pillow==7.1.2
-keras==2.9.0
 tensorflow==2.9.2
-skimage==0.18.3
+keras==2.9.0
+streamlit==1.14.0
 scipy==1.7.3
+scikit_image
+opencv-python-headless
