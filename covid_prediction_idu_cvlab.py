@@ -19,22 +19,22 @@ from tensorflow.keras.applications.imagenet_utils import preprocess_input, decod
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile app.py
-# import streamlit as st
-# import tensorflow as tf
-# from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
+ import streamlit as st
+ import tensorflow as tf
+ from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
 # 
-# @st.cache(allow_output_mutation=True)
+ @st.cache(allow_output_mutation=True)
 # def load_model():
 #   model=tf.keras.models.load_model('/content/drive/MyDrive/IDU-CV Lab Work/COV19D_2nd - Trnasfer Learning/Saved Models/Modified_Xception.h5')
 #   return model
 # with st.spinner('Model is being loaded..'):
 #   model=load_model()
 # 
-# st.write("""
-#          # COVID-19 Prediction Through CT images
-#          """
-#          )
-# 
+ st.write("""
+          # COVID-19 Prediction Through CT images
+          """
+          )
+
 # file = st.file_uploader("Upload the image to be classified \U0001F447", type=["jpg", "png"])
 # import cv2
 # from PIL import Image, ImageOps
@@ -72,4 +72,4 @@ from tensorflow.keras.applications.imagenet_utils import preprocess_input, decod
 #     #st.write("The similarity score is approximately",score)
 #     print("The image is classified as ",image_class,)
 
-!streamlit run app.py & npx localtunnel --port 8501
+#!streamlit run app.py & npx localtunnel --port 8501
