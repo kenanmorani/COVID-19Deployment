@@ -25,12 +25,12 @@ import scipy.misc
 
 ## Segmentation
 def load_model():
-  UNet_model=tf.keras.models.load_model('/content/COVID-19Deployment-PipeLine/UNet_model-3L-BatchNorm.h5')
+  UNet_model=tf.keras.models.load_model('UNet_model-3L-BatchNorm.h5')
   return UNet_model
 
 ## Classification for COVID-19
 def load_model2():
-  model=tf.keras.models.load_model('/content/COVID-19Deployment-PipeLine/UNet-BatchNorm-CNN-model.h5')
+  model=tf.keras.models.load_model('UNet-BatchNorm-CNN-model.h5')
   return model
 
 with st.spinner('Model is being loaded..'):
@@ -38,11 +38,24 @@ with st.spinner('Model is being loaded..'):
   model=load_model2()
 
 st.write("""
-         # COVID-19 diagnosis via 2D Grayscale Slices - pre-trained on COV19-DT-DB
+         # COVID-19 diagnosis via 2D Grayscale Slices - pre-trained on COV19-CT-DB
+         """
+         )
+st.write("""
+         The method details @ https://github.com/IDU-CVLab/COV19D_3rd
+         
+         """
+         )
+st.write("""
+         By Kenan Morani @ Izmir Democracy University
+         
          """
          )
 
 file = st.file_uploader("Upload the image to be classified \U0001F447", type=["jpg", "png"])
+
+
+
 import cv2
 from PIL import Image, ImageOps
 import numpy as np
@@ -136,4 +149,4 @@ else:
     #score=np.round(predictions[0][0][2],5) 
     st.write("The image is classified as", predictions)
     #st.write("The similarity score is approximately",score)
-    print("The image is classified as ",image_class,)
+    st.write("Email @ kenan.morani@gmail.com, Webpage: https://github.com/kenanmorani")
