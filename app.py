@@ -52,14 +52,19 @@ st.write("""
          """
          )
 
-file = st.file_uploader("Upload the image to be classified \U0001F447", type=["jpg", "png"])
+filename = st.text_input('Enter a file path:')
+try:
+    with open(filename) as input:
+        st.text(input.read())
+except FileNotFoundError:
+    st.error('File not found.')
 
 
 
 import cv2
 from PIL import Image, ImageOps
 import numpy as np
-st.set_option('deprecation.showfileUploaderEncoding', False)
+# st.set_option('deprecation.showfileUploaderEncoding', False)
 
 def upload_predict(upload_image, UNet_model ,model):
     
