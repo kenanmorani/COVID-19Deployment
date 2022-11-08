@@ -23,7 +23,7 @@ import streamlit as st
 import tensorflow as tf
 from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
 # 
- @st.cache(allow_output_mutation=True)
+#@st.cache(allow_output_mutation=True)
 # def load_model():
 #   model=tf.keras.models.load_model('/content/drive/MyDrive/IDU-CV Lab Work/COV19D_2nd - Trnasfer Learning/Saved Models/Modified_Xception.h5')
 #   return model
