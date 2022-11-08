@@ -54,13 +54,11 @@ st.write("""
 
 folder_path = st.text_input('Enter a file path:')
 st.write(folder_path)
-try:
-    with open(folder_path) as input:
-        st.text(input.read())
-except FileNotFoundError:
-    st.error('File not found.')
-
-
+#try:
+    #with open(folder_path) as input:
+        #st.text(input.read())
+#except FileNotFoundError:
+    #st.error('File not found.')
 
 import cv2
 from PIL import Image, ImageOps
@@ -160,24 +158,25 @@ results =1
 
 for filee in os.listdir(folder_path):
         file_path = os.path.join(folder_path, filee)
-        result = upload_predict(file_path, UNet_model, model)
+        st.write(file_path)
+        #result = upload_predict(file_path, UNet_model, model)
     
         
        
-        if result > 0.50:   # Class probability threshod is 0.50
-           extensions9.append(results)
-        else:
-           extensions8.append(results)           
+        #if result > 0.50:   # Class probability threshod is 0.50
+           #extensions9.append(results)
+        #else:
+           #extensions8.append(results)           
         #print(sub_folder_path, end="\r \n")
         ## The majority voting at Patient's level
-        extensions8=[]
-        extensions9=[]
+        #extensions8=[]
+        #extensions9=[]
     
-if len(extensions9) >  len(extensions8):
-      st.write("The Patient is NEGATIVE for NON-COVID")
+#if len(extensions9) >  len(extensions8):
+      #st.write("The Patient is NEGATIVE for NON-COVID")
       
-else:
-      st.write("The Patient is POSITIVE for COVID")
+#else:
+      #st.write("The Patient is POSITIVE for COVID")
       
        
 st.write("Email @ kenan.morani@gmail.com, Webpage: https://github.com/kenanmorani")
