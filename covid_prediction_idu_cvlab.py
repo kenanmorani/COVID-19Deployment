@@ -43,6 +43,8 @@ try:
 except FileNotFoundError:
     st.error('File not found.')
 
+st.write(filename)
+
 # file = st.file_uploader("Upload the image to be classified \U0001F447", type=["jpg", "png"])
 # import cv2
 # from PIL import Image, ImageOps
