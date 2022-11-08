@@ -19,9 +19,9 @@ from tensorflow.keras.applications.imagenet_utils import preprocess_input, decod
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile app.py
- import streamlit as st
- import tensorflow as tf
- from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
+import streamlit as st
+import tensorflow as tf
+from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
 # 
  @st.cache(allow_output_mutation=True)
 # def load_model():
@@ -34,6 +34,11 @@ from tensorflow.keras.applications.imagenet_utils import preprocess_input, decod
           # COVID-19 Prediction Through CT images
           """
           )
+file_path = input('Enter a file path: ')
+
+# e.g. C:\Users\Bob\Desktop\example.txt
+# or /home/Bob/Desktop/example.txt
+print(file_path)
 
 # file = st.file_uploader("Upload the image to be classified \U0001F447", type=["jpg", "png"])
 # import cv2
