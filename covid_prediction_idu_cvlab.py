@@ -30,7 +30,7 @@ from tensorflow.keras.applications.imagenet_utils import preprocess_input, decod
 # with st.spinner('Model is being loaded..'):
 #   model=load_model()
 # 
- st.write("""
+st.write("""
           # COVID-19 Prediction Through CT images
           """
           )
