@@ -34,11 +34,15 @@ st.write("""
           # COVID-19 Prediction Through CT images
           """
           )
-file_path = input('Enter a file path: ')
+inputdirectory = input("Please type in the full path of the folder containing your files:    ")
+inputfileextensions = input("Please type in the file extension of your files:    ")
+files = glob.glob(inputdirectory+"*."+inputfileextensions)
+
+#file_path = input('Enter a file path: ')
 
 # e.g. C:\Users\Bob\Desktop\example.txt
 # or /home/Bob/Desktop/example.txt
-print(file_path)
+#print(file_path)
 
 # file = st.file_uploader("Upload the image to be classified \U0001F447", type=["jpg", "png"])
 # import cv2
