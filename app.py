@@ -75,7 +75,7 @@ import numpy as np
 def upload_predict(upload_image, UNet_model ,model):
     
    
-        image = ImageOps.fit(upload_image, (224,224), Image.ANTIALIAS)
+        image = ImageOps.fit(upload_image, (224,224), bleed=0.0, Image.ANTIALIAS)
         
         image = np.asarray(image)
         n = image
