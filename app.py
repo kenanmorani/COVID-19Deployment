@@ -64,24 +64,14 @@ st.write("""
   
 uploaded_files = st.file_uploader("Select all slices from one CT scan", accept_multiple_files=True)
 
-for uploaded_file in uploaded_files:
-    if uploaded_file is not None:
-            path_in = uploaded_file.name
-            print(path_in)
-            c = cv2.imread(path_in, 0) 
-    else:
-            path_in = None
-            
-    #bytes_data = uploaded_file.read()
-    #st.write("filename:", uploaded_file.name)
-    #st.write(bytes_data)
 
-import cv2
+
+
 from PIL import Image, ImageOps
 import numpy as np
 # st.set_option('deprecation.showfileUploaderEncoding', False)
 
-def upload_predict(file_path, UNet_model ,model):
+def upload_predict(path_in, UNet_model ,model):
     
         size = (224,224)  
         #image = ImageOps.fit(upload_image, size, Image.ANTIALIAS)
@@ -159,19 +149,24 @@ def upload_predict(file_path, UNet_model ,model):
         
         return prediction
 
-#if file is None:
-#    st.text("Please upload an image file")
-#else:
-    #image = Image.open(file)
-    #st.image(image, use_column_width=True)
-    
-#folder_path = '/home/idu/Desktop/COV19D/val-seg3/non-covid'
+
 
 extensions8 = []
 extensions9 = []
 
 results =1
 
+for uploaded_file in uploaded_files:
+    if uploaded_file is not None:
+            path_in = uploaded_file.name
+            print(path_in)
+            #c = cv2.imread(path_in, 0)
+            result = upload_predict(file_path, UNet_model, model)
+            st.write(result)
+    else:
+            path_in = None
+            
+    
 #for filee in os.listdir(folder_path):
         #file_path = os.path.join(folder_path, filee)
         #st.write(file_path)
