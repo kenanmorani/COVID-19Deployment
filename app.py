@@ -74,9 +74,9 @@ import numpy as np
 
 for uploaded_file in uploaded_files:
     if uploaded_file is not None:
-            image = Image.open(path_in)
+            image = Image.open(uploaded_file)
             #path_in = uploaded_file.name
-            print(path_in)
+            #print(uploaded_file)
             #c = cv2.imread(path_in, 0)
             #result = upload_predict(path_in, UNet_model, model)
             st.write(image)
