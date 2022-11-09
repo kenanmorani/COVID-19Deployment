@@ -155,12 +155,12 @@ def upload_predict(upload_image, UNet_model ,model):
 extensions8 = []
 extensions9 = []
 
-#results =1
+results =1
 
 for uploaded_file in uploaded_files:
-    if uploaded_file is not None:
+    #if uploaded_file is not None:
             result = upload_predict(uploaded_file, UNet_model ,model)
-            if result > 0.50:   # Class probability threshod is 0.50
+            if result > 0.50:   
              extensions9.append(results)
             else:
              extensions8.append(results)           
