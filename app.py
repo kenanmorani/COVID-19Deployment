@@ -72,16 +72,7 @@ import numpy as np
 # st.set_option('deprecation.showfileUploaderEncoding', False)
 
 
-for uploaded_file in uploaded_files:
-    if uploaded_file is not None:
-            result = upload_predict(uploaded_file, UNet_model ,model)
-            #path_in = uploaded_file.name
-            #print(uploaded_file)
-            #c = cv2.imread(path_in, 0)
-            #result = upload_predict(path_in, UNet_model, model)
-            #st.write(image)
-    else:
-            path_in = None
+
 
 def upload_predict(uploaded_file, UNet_model ,model):
     
@@ -179,13 +170,14 @@ results =1
 
 for uploaded_file in uploaded_files:
     if uploaded_file is not None:
-            path_in = uploaded_file.name
-            print(path_in)
+            result = upload_predict(uploaded_file, UNet_model ,model)
+            #path_in = uploaded_file.name
+            #print(uploaded_file)
             #c = cv2.imread(path_in, 0)
-            result = upload_predict(path_in, UNet_model, model)
-            st.write(result)
-    else:
-            path_in = None
+            #result = upload_predict(path_in, UNet_model, model)
+            #st.write(image)
+    #else:
+            #path_in = None
             
     
 #for filee in os.listdir(folder_path):
