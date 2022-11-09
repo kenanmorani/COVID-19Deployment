@@ -15,9 +15,9 @@ from skimage import measure, feature
 from skimage.segmentation import clear_border
 from scipy import ndimage as ndi
 #import matplotlib.pyplot as plt
-import os
+
 import scipy.misc
-#import nibabel as nib
+
 
 #from PIL import Image as im
 
@@ -159,7 +159,9 @@ results =1
 
 for uploaded_file in uploaded_files:
     #if uploaded_file is not None:
-            image = ImageOps.fit(uploaded_file, (224,224), Image.LANCZOS)
+            size = (224,224)  
+            image = ImageOps.fit(upload_image, size, Image.ANTIALIAS)
+            #image = ImageOps.fit(uploaded_file, (224,224), Image.LANCZOS)
             result = upload_predict(image, UNet_model ,model)
             if result > 0.50:   
              extensions9.append(results)
