@@ -76,9 +76,10 @@ import numpy as np
 
 def upload_predict(uploaded_file, UNet_model ,model):
     
-        image = Image.open(uploaded_file) 
-        n = Image.open(uploaded_file)
-        #image = ImageOps.fit(upload_image, size, Image.ANTIALIAS)
+        #image = Image.open(uploaded_file) 
+        #n = Image.open(uploaded_file)
+        image = ImageOps.fit(uploaded_file, size, Image.ANTIALIAS)
+        n = ImageOps.fit(uploaded_file, size, Image.ANTIALIAS)
         
         #image = cv2.imread(path_in, 0)
         #n = cv2.imread(path_in, 0)
@@ -86,9 +87,9 @@ def upload_predict(uploaded_file, UNet_model ,model):
         #n = Image.open("path_in.jpg")
         
         image = np.asarray(image)
-        n = np.asarray(n)
+        #n = np.asarray(n)
         image = cv2.resize(image, size)
-        n = n.resize((size, size))
+        
         #n = Image.fromarray(n)
         
         image = image * 100.0 / 255.0  
