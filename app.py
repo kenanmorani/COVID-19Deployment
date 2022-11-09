@@ -68,6 +68,7 @@ for uploaded_file in uploaded_files:
     if uploaded_file is not None:
             path_in = uploaded_file.name
             print(path_in)
+            c = cv2.imread(path_in, 0) 
     else:
             path_in = None
             
@@ -171,9 +172,9 @@ extensions9 = []
 
 results =1
 
-for filee in os.listdir(folder_path):
-        file_path = os.path.join(folder_path, filee)
-        st.write(file_path)
+#for filee in os.listdir(folder_path):
+        #file_path = os.path.join(folder_path, filee)
+        #st.write(file_path)
         #result = upload_predict(file_path, UNet_model, model)
     
         
