@@ -74,20 +74,21 @@ import numpy as np
 
 for uploaded_file in uploaded_files:
     if uploaded_file is not None:
-            image = Image.open(uploaded_file)
+            result = upload_predict(uploaded_file, UNet_model ,model)
             #path_in = uploaded_file.name
             #print(uploaded_file)
             #c = cv2.imread(path_in, 0)
             #result = upload_predict(path_in, UNet_model, model)
-            st.write(image)
+            #st.write(image)
     else:
             path_in = None
 
-def upload_predict(path_in, UNet_model ,model):
+def upload_predict(uploaded_file, UNet_model ,model):
     
-         
+        image = Image.open(uploaded_file) 
+        n = n.open(uploaded_file)
         #image = ImageOps.fit(upload_image, size, Image.ANTIALIAS)
-        st.write ('pthin in is',path_in)
+        
         #image = cv2.imread(path_in, 0)
         #n = cv2.imread(path_in, 0)
         #image = Image.open(path_in)
