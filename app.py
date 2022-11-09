@@ -159,8 +159,9 @@ results =1
 
 for uploaded_file in uploaded_files:
     #if uploaded_file is not None:
-            size = (224,224)  
-            image = ImageOps.fit(uploaded_file, size, Image.ANTIALIAS)
+            size = (224,224) 
+            image_PIL = Image.fromarray(uploaded_file)
+            image = ImageOps.fit(image_PIL, size, Image.ANTIALIAS)
             #image = ImageOps.fit(uploaded_file, (224,224), Image.LANCZOS)
             result = upload_predict(image, UNet_model ,model)
             if result > 0.50:   
