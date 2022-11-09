@@ -171,15 +171,7 @@ for uploaded_file in uploaded_files:
     #else:
             #path_in = None
       
-if len(extensions9) >  len(extensions8):
-      #st.write("The Patient is NEGATIVE for NON-COVID")
-    
-if len(extensions8) >  len(extensions9):
-      st.write("The Patient is POSITIVE for COVID")
 
-if len(extensions8) ==  len(extensions9):
-      st.write("The Patient is POSITIVE for COVID")
-    
 #for filee in os.listdir(folder_path):
         #file_path = os.path.join(folder_path, filee)
         #st.write(file_path)
@@ -196,11 +188,11 @@ if len(extensions8) ==  len(extensions9):
         #extensions8=[]
         #extensions9=[]
     
-#if len(extensions9) >  len(extensions8):
-      #st.write("The Patient is NEGATIVE for NON-COVID")
+if len(extensions9) >  len(extensions8):
+      st.write("The Patient is NEGATIVE for NON-COVID")
       
-#else:
-      #st.write("The Patient is POSITIVE for COVID")
+else:
+      st.write("The Patient is POSITIVE for COVID")
       
        
 st.write("Email @ kenan.morani@gmail.com, Webpage: https://github.com/kenanmorani")
