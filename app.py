@@ -78,8 +78,8 @@ def upload_predict(path_in, UNet_model ,model):
         st.write ('pthin in is',path_in)
         #image = cv2.imread(path_in, 0)
         #n = cv2.imread(path_in, 0)
-        image = Image.open("path_in.jpg")
-        n = Image.open("path_in.jpg")
+        image = Image.open(path_in,".jpg")
+        #n = Image.open("path_in.jpg")
         
         #image = np.asarray(image)
         n = cv2.resize(n, size)
