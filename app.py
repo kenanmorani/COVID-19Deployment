@@ -86,10 +86,10 @@ def upload_predict(uploaded_file, UNet_model ,model):
         #n = Image.open("path_in.jpg")
         
         image = np.asarray(image)
-        n = np.asarray(n)
+        #n = np.asarray(n)
         image = cv2.resize(image, size)
         n = cv2.resize(n, size)
-        n = Image.fromarray(n)
+        #n = Image.fromarray(n)
         
         image = image * 100.0 / 255.0  
         #n = n * 100.0 / 255.0
