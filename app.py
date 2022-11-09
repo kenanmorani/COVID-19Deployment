@@ -68,7 +68,7 @@ for uploaded_file in uploaded_files:
     if uploaded_file is not None:
             path_in = uploaded_file.name
             print(path_in)
-        else:
+    else:
             path_in = None
             
     #bytes_data = uploaded_file.read()
