@@ -2,7 +2,7 @@ import streamlit as st
 import tensorflow as tf
 from tensorflow.keras.applications.imagenet_utils import preprocess_input, decode_predictions
 import skimage
-
+import cv2
 from skimage import morphology
 from skimage import segmentation
 import scipy
