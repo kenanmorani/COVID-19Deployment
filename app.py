@@ -52,8 +52,8 @@ st.write("""
          """
          )
 
-folder_path = st.text_input('Enter a file path:')
-st.write(folder_path)
+#folder_path = st.text_input('Enter a file path:')
+#st.write(folder_path)
 #while not os.path.isfile(folder_path):
     #fileName = input("Whoops! No such file! Please enter the name of the file you'd like to use.")
 #try:
@@ -61,6 +61,13 @@ st.write(folder_path)
         #st.text(input.read())
 #except FileNotFoundError:
     #st.error('File not found.')
+  
+uploaded_files = st.file_uploader("Select all slices from one CT scan", accept_multiple_files=True)
+
+for uploaded_file in uploaded_files:
+    bytes_data = uploaded_file.read()
+    st.write("filename:", uploaded_file.name)
+    st.write(bytes_data)
 
 import cv2
 from PIL import Image, ImageOps
