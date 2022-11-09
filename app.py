@@ -75,8 +75,10 @@ def upload_predict(path_in, UNet_model ,model):
     
         size = (224,224)  
         #image = ImageOps.fit(upload_image, size, Image.ANTIALIAS)
+        st.write ('pthin in is',path_in)
         image = cv2.imread(path_in, 0)
-        n = image
+        n = cv2.imread(path_in, 0)
+        
         #image = np.asarray(image)
         n = cv2.resize(n, size)
         image = cv2.resize(image, size)
