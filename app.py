@@ -86,19 +86,21 @@ def upload_predict(uploaded_file, UNet_model ,model):
         #n = Image.open("path_in.jpg")
         
         image = np.asarray(image)
-        #n = np.asarray(n)
+        n = np.asarray(n)
         image = cv2.resize(image, size)
         n = cv2.resize(n, size)
         #n = Image.fromarray(n)
         
         image = image * 100.0 / 255.0  
-        #n = n * 100.0 / 255.0
+        n = n * 100.0 / 255.0
         image = image / 255.0
+        n = n * 100.0 / 255.0
+        n=n.astype(np.uint8)
 
         #img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         #img_resize = cv2.resize(img, dsize=(224, 224),interpolation=cv2.INTER_CUBIC)
         image = image[None]
-        #n = n[None]
+        n = n[None]
         #img_reshape = img_resize
         
         #img_reshape = img_resize[np.newaxis,...]
