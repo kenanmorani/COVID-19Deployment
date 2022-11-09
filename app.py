@@ -67,7 +67,7 @@ uploaded_files = st.file_uploader("Select all slices from one CT scan", accept_m
 
 size = (224,224) 
 
-from PIL import Image, ImageOps, resize
+from PIL import Image, ImageOps
 import numpy as np
 # st.set_option('deprecation.showfileUploaderEncoding', False)
 
