@@ -72,10 +72,10 @@ import numpy as np
 
 
 
-def upload_predict(upload_image, UNet_model ,model):
+def upload_predict(image, UNet_model ,model):
     
    
-        image = ImageOps.fit(upload_image, (224,224),)# Image.ANTIALIAS)
+        #image = ImageOps.fit(upload_image, (224,224), Image.ANTIALIAS)
         
         image = np.asarray(image)
         n = image
@@ -159,7 +159,8 @@ results =1
 
 for uploaded_file in uploaded_files:
     #if uploaded_file is not None:
-            result = upload_predict(uploaded_file, UNet_model ,model)
+            image = ImageOps.fit(upload_image, (224,224), Image.ANTIALIAS)
+            result = upload_predict(image, UNet_model ,model)
             if result > 0.50:   
              extensions9.append(results)
             else:
