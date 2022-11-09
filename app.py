@@ -79,7 +79,7 @@ def upload_predict(uploaded_file, UNet_model ,model):
         #image = Image.open(uploaded_file) 
         #n = Image.open(uploaded_file)
         image = ImageOps.fit(uploaded_file, size, Image.ANTIALIAS)
-        n = ImageOps.fit(uploaded_file, size, Image.ANTIALIAS)
+        n = image
         
         #image = cv2.imread(path_in, 0)
         #n = cv2.imread(path_in, 0)
