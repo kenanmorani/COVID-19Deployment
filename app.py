@@ -156,11 +156,14 @@ extensions8 = []
 extensions9 = []
 
 results =1
-
+import io
 for uploaded_file in uploaded_files:
     #if uploaded_file is not None:
             size = (224,224)
-            image_PIL = uploaded_file.read()
+      
+
+            image_PIL = Image.open(io.BytesIO(uploaded_file))
+            #image_PIL = uploaded_file.read()
             #st.write ('tupe is', type(uploaded_file))
             #image_PIL = uploaded_file.convert("L")
             #image_PIL = Image.fromarray(uploaded_file)
