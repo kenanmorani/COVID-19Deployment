@@ -74,8 +74,8 @@ import numpy as np
 
 def upload_predict(upload_image, UNet_model ,model):
     
-        size = (224,224)  
-        image = ImageOps.fit(upload_image, size, Image.ANTIALIAS)
+        size = (224, 224)  
+        image = ImageOps.fit(upload_image, size = size, Image.ANTIALIAS)
         
         image = np.asarray(image)
         n = image
@@ -189,7 +189,7 @@ for uploaded_file in uploaded_files:
         #extensions9=[]
     
 if len(extensions9) >  len(extensions8):
-      st.write("The Patient is NEGATIVE for NON-COVID")
+      st.write("The Patient is NEGATIVE for COVID")
       
 else:
       st.write("The Patient is POSITIVE for COVID")
