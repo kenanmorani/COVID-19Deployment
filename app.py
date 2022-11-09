@@ -65,9 +65,15 @@ st.write("""
 uploaded_files = st.file_uploader("Select all slices from one CT scan", accept_multiple_files=True)
 
 for uploaded_file in uploaded_files:
-    bytes_data = uploaded_file.read()
-    st.write("filename:", uploaded_file.name)
-    st.write(bytes_data)
+    if uploaded_file is not None:
+            path_in = uploaded_file.name
+            print(path_in)
+        else:
+            path_in = None
+            
+    #bytes_data = uploaded_file.read()
+    #st.write("filename:", uploaded_file.name)
+    #st.write(bytes_data)
 
 import cv2
 from PIL import Image, ImageOps
