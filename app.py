@@ -76,15 +76,19 @@ def upload_predict(path_in, UNet_model ,model):
         size = (224,224)  
         #image = ImageOps.fit(upload_image, size, Image.ANTIALIAS)
         image = cv2.imread(path_in, 0)
-        image = np.asarray(image)
         n = image
-        #image = cv2.resize(image, dim)
+        #image = np.asarray(image)
+        n = cv2.resize(n, size)
+        image = cv2.resize(image, size)
+        
         image = image * 100.0 / 255.0  
+        n = n * 100.0 / 255.0
         image = image / 255.0
 
         #img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         #img_resize = cv2.resize(img, dsize=(224, 224),interpolation=cv2.INTER_CUBIC)
         image = image[None]
+        n = n[None]
         #img_reshape = img_resize
         
         #img_reshape = img_resize[np.newaxis,...]
@@ -99,7 +103,7 @@ def upload_predict(path_in, UNet_model ,model):
 
         
         #Prediction11 = Unet_model.predict(img_reshape)
-        image = np.squeeze(image)
+      
 
         # Lung  Exctrction
         image = skimage.segmentation.clear_border (image)
