@@ -65,8 +65,6 @@ st.write("""
 uploaded_files = st.file_uploader("Select all slices from one CT scan", accept_multiple_files=True)
 
 
-size = (224,224) 
-
 from PIL import Image, ImageOps
 import numpy as np
 # st.set_option('deprecation.showfileUploaderEncoding', False)
@@ -74,34 +72,20 @@ import numpy as np
 
 
 
-def upload_predict(uploaded_file, UNet_model ,model):
+def upload_predict(upload_image, UNet_model ,model):
     
-        #image = Image.open(uploaded_file) 
-        #n = Image.open(uploaded_file)
-        image = ImageOps.fit(uploaded_file, size, Image.ANTIALIAS)
-        n = image
-        
-        #image = cv2.imread(path_in, 0)
-        #n = cv2.imread(path_in, 0)
-        #image = Image.open(path_in)
-        #n = Image.open("path_in.jpg")
+        size = (224,224)  
+        image = ImageOps.fit(upload_image, size, Image.ANTIALIAS)
         
         image = np.asarray(image)
-        #n = np.asarray(n)
-        image = cv2.resize(image, size)
-        
-        #n = Image.fromarray(n)
-        
+        n = image
+        #image = cv2.resize(image, dim)
         image = image * 100.0 / 255.0  
-        #n = n * 100.0 / 255.0
         image = image / 255.0
-        #n = n * 100.0 / 255.0
-        #n=n.astype(np.uint8)
 
         #img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         #img_resize = cv2.resize(img, dsize=(224, 224),interpolation=cv2.INTER_CUBIC)
         image = image[None]
-        #n = n[None]
         #img_reshape = img_resize
         
         #img_reshape = img_resize[np.newaxis,...]
@@ -116,7 +100,7 @@ def upload_predict(uploaded_file, UNet_model ,model):
 
         
         #Prediction11 = Unet_model.predict(img_reshape)
-      
+        image = np.squeeze(image)
 
         # Lung  Exctrction
         image = skimage.segmentation.clear_border (image)
@@ -171,19 +155,26 @@ def upload_predict(uploaded_file, UNet_model ,model):
 extensions8 = []
 extensions9 = []
 
-results =1
+#results =1
 
 for uploaded_file in uploaded_files:
     if uploaded_file is not None:
             result = upload_predict(uploaded_file, UNet_model ,model)
-            #path_in = uploaded_file.name
-            #print(uploaded_file)
-            #c = cv2.imread(path_in, 0)
-            #result = upload_predict(path_in, UNet_model, model)
-            #st.write(image)
+            if result > 0.50:   # Class probability threshod is 0.50
+             extensions9.append(results)
+            else:
+             extensions8.append(results)           
+        #print(sub_folder_path, end="\r \n")
+        ## The majority voting at Patient's level
+            extensions8=[]
+            extensions9=[]
     #else:
             #path_in = None
-            
+      
+if len(extensions9) >  len(extensions8):
+      #st.write("The Patient is NEGATIVE for NON-COVID")
+else:
+      st.write("The Patient is POSITIVE for COVID") 
     
 #for filee in os.listdir(folder_path):
         #file_path = os.path.join(folder_path, filee)
