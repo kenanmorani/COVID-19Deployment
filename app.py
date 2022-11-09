@@ -161,7 +161,7 @@ for uploaded_file in uploaded_files:
             path_in = uploaded_file.name
             print(path_in)
             #c = cv2.imread(path_in, 0)
-            result = upload_predict(file_path, UNet_model, model)
+            result = upload_predict(path_in, UNet_model, model)
             st.write(result)
     else:
             path_in = None
